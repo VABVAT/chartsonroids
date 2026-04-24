@@ -1,6 +1,5 @@
 import { Suspense, lazy, startTransition, useEffect, useState } from 'react'
 import 'backtestcharts/styles.css'
-
 const BacktestChartWidget = lazy(() => import('backtestcharts'))
 
 const promptExamples = [
