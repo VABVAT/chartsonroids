@@ -23,19 +23,10 @@ const promptExamples = [
     ],
   },
   {
-    label: '20 MA pullback',
-    title: 'Buy deep pullbacks back toward the recent average.',
-    lines: [
-      'Buy when price drops significantly below a 20-period moving average and begins to stabilize.',
-      'Use a momentum filter like RSI below 30 for entry and 50-60 for exit to avoid catching falling knives.',
-      'Place a tight stop below recent lows so the downside stays controlled.',
-    ],
-  },
-  {
     label: 'RSI reversion',
     title: 'RSI below 30. Exit above 60.',
     lines: [
-      'Backtest 15m.',
+      'Backtest BTCUSDT on 15m.',
       'Use RSI below 30 as the entry trigger and RSI above 60 as the exit trigger.',
       'Keep it as a simple mean-reversion setup with fast exits and tight risk.',
     ],
@@ -170,7 +161,13 @@ function PromptShowcase() {
             <span className="prompt-example-index">{String(activePromptIndex + 1).padStart(2, '0')}</span>
             <span className="prompt-example-label">{activePrompt.label}</span>
           </div>
-          <button type="button" onClick={handleCopyPrompt} className="prompt-copy-button">
+          <button
+            type="button"
+            onClick={handleCopyPrompt}
+            className={`prompt-copy-button ${copiedPromptIndex === activePromptIndex ? 'is-copied' : ''}`}
+            aria-label={copiedPromptIndex === activePromptIndex ? 'Prompt copied' : 'Copy prompt'}
+            title={copiedPromptIndex === activePromptIndex ? 'Prompt copied' : 'Copy prompt'}
+          >
             <svg
               className="prompt-copy-icon"
               viewBox="0 0 16 16"
@@ -185,7 +182,9 @@ function PromptShowcase() {
               />
               <rect x="2" y="5.33325" width="8.66667" height="8.66667" stroke="currentColor" strokeWidth="1.25" />
             </svg>
-            <span>{copiedPromptIndex === activePromptIndex ? 'Copied' : ''}</span>
+            <span className="prompt-copy-status" aria-hidden={copiedPromptIndex !== activePromptIndex}>
+              Copied
+            </span>
           </button>
         </div>
         <p className="prompt-example-title">{activePrompt.title}</p>
@@ -214,8 +213,8 @@ function PromptShowcase() {
             className={`prompt-pager ${index === activePromptIndex ? 'is-active' : ''}`}
             aria-label={`Show ${prompt.label} prompt example`}
           >
+            <span className="prompt-pager-line" aria-hidden />
             <span className="prompt-pager-index">{String(index + 1).padStart(2, '0')}</span>
-            <span className="prompt-pager-label">{prompt.label}</span>
           </button>
         ))}
       </div>

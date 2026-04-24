@@ -152,32 +152,37 @@
     @apply h-3.5 w-3.5;
   }
 
+  .prompt-copy-status {
+    @apply inline-block w-0 overflow-hidden whitespace-nowrap text-[10px] uppercase tracking-[0.18em] opacity-0 transition-all duration-300;
+  }
+
+  .prompt-copy-button.is-copied .prompt-copy-status {
+    @apply w-14 opacity-100;
+  }
+
   .prompt-pagers {
-    @apply mt-4 flex flex-wrap gap-2;
+    @apply mt-5 flex flex-wrap items-center gap-4;
   }
 
   .prompt-pager {
-    @apply inline-flex items-center gap-2 border border-black/10 bg-white px-3 py-2 text-left transition-all duration-300 hover:border-black hover:bg-black hover:text-white;
+    @apply inline-flex items-center gap-3 bg-transparent p-0 text-left text-neutral-400 transition-all duration-300 hover:text-black;
   }
 
   .prompt-pager.is-active {
-    @apply border-black bg-black text-white;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+    @apply text-black;
   }
 
   .prompt-pager-index {
-    @apply text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-400 transition-colors duration-300;
+    @apply text-[10px] font-semibold uppercase tracking-[0.28em] transition-colors duration-300;
   }
 
-  .prompt-pager-label {
-    @apply text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-600 transition-colors duration-300;
+  .prompt-pager-line {
+    @apply h-px w-6 bg-black/10 transition-all duration-300;
   }
 
-  .prompt-pager:hover .prompt-pager-index,
-  .prompt-pager:hover .prompt-pager-label,
-  .prompt-pager.is-active .prompt-pager-index,
-  .prompt-pager.is-active .prompt-pager-label {
-    @apply text-white;
+  .prompt-pager:hover .prompt-pager-line,
+  .prompt-pager.is-active .prompt-pager-line {
+    @apply w-12 bg-black;
   }
 
   .feature-card {
