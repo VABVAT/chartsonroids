@@ -32,6 +32,15 @@
     @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500;
   }
 
+  .brand-mark {
+    @apply block h-3 w-3 border border-black bg-black;
+    box-shadow: 3px 3px 0 #ffffff, 3px 3px 0 1px #000000;
+  }
+
+  .header-link {
+    @apply inline-flex items-center border border-transparent px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-neutral-600 transition-all duration-300 hover:border-black hover:bg-black hover:text-white;
+  }
+
   .button-primary {
     @apply inline-flex items-center justify-center border border-black bg-black px-4 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white transition-all duration-300 hover:bg-white hover:text-black;
   }
@@ -43,5 +52,203 @@
   .hero-emphasis {
     @apply relative border border-black bg-black px-5 pb-2 pt-1 text-white;
     box-shadow: 8px 8px 0 #ffffff, 8px 8px 0 1px #000000;
+  }
+
+  .prompt-stage {
+    @apply pt-2 lg:pl-8;
+  }
+
+  .prompt-track {
+    @apply relative mt-6 pl-7;
+  }
+
+  .prompt-track::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.15) 100%);
+  }
+
+  .prompt-track-dot {
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    display: block;
+    height: 0.9rem;
+    width: 0.9rem;
+    border: 1px solid #000000;
+    background: #000000;
+    animation: prompt-dot-drift 2.8s ease-in-out infinite;
+  }
+
+  .prompt-statement {
+    @apply relative max-w-md text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.02] tracking-[-0.06em] text-black;
+  }
+
+  .prompt-highlight {
+    @apply inline text-black;
+    box-shadow: inset 0 -0.42em 0 rgba(0, 0, 0, 0.08);
+    animation: prompt-highlight-pulse 2.6s ease-in-out infinite;
+  }
+
+  .prompt-caption {
+    @apply mt-6 max-w-sm pl-7 text-sm leading-7 text-neutral-600;
+  }
+
+  .prompt-rotator {
+    @apply mt-7 pl-7;
+  }
+
+  .prompt-example {
+    @apply border border-black/10 bg-neutral-50/70 px-5 py-5 sm:px-6 sm:py-6;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.04);
+    animation: prompt-example-in 420ms ease both;
+  }
+
+  .prompt-example-meta {
+    @apply flex items-center justify-between gap-4;
+  }
+
+  .prompt-example-meta-copy {
+    @apply flex items-center gap-3;
+  }
+
+  .prompt-example-index {
+    @apply inline-flex items-center justify-center border border-black/10 bg-white px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-neutral-500;
+  }
+
+  .prompt-example-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.26em] text-black;
+  }
+
+  .prompt-example-title {
+    @apply mt-3 max-w-md text-lg font-semibold leading-7 tracking-[-0.04em] text-black;
+  }
+
+  .prompt-example-lines {
+    @apply mt-5 grid gap-4;
+  }
+
+  .prompt-example-intro {
+    @apply max-w-md text-sm font-medium leading-7 text-neutral-700;
+  }
+
+  .prompt-example-body {
+    @apply grid gap-3;
+  }
+
+  .prompt-example-text {
+    @apply max-w-md text-sm leading-7 text-neutral-600;
+  }
+
+  .prompt-copy-button {
+    @apply inline-flex shrink-0 items-center gap-2 border border-black/10 bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-600 transition-all duration-300 hover:border-black hover:bg-black hover:text-white;
+  }
+
+  .prompt-copy-icon {
+    @apply h-3.5 w-3.5;
+  }
+
+  .prompt-pagers {
+    @apply mt-4 flex flex-wrap gap-2;
+  }
+
+  .prompt-pager {
+    @apply inline-flex items-center gap-2 border border-black/10 bg-white px-3 py-2 text-left transition-all duration-300 hover:border-black hover:bg-black hover:text-white;
+  }
+
+  .prompt-pager.is-active {
+    @apply border-black bg-black text-white;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .prompt-pager-index {
+    @apply text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-400 transition-colors duration-300;
+  }
+
+  .prompt-pager-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-600 transition-colors duration-300;
+  }
+
+  .prompt-pager:hover .prompt-pager-index,
+  .prompt-pager:hover .prompt-pager-label,
+  .prompt-pager.is-active .prompt-pager-index,
+  .prompt-pager.is-active .prompt-pager-label {
+    @apply text-white;
+  }
+
+  .feature-card {
+    @apply relative overflow-hidden border border-black bg-white p-5 transition-all duration-300 hover:-translate-y-1 sm:p-6;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #000000;
+    transform: translateY(101%);
+    transition: transform 320ms ease;
+    pointer-events: none;
+  }
+
+  .feature-card:hover::before {
+    transform: translateY(0);
+  }
+
+  .feature-card-inner {
+    @apply relative z-10 flex h-full min-h-[13rem] flex-col justify-between gap-10;
+  }
+
+  .feature-eyebrow {
+    @apply text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-500 transition-colors duration-300 group-hover:text-white/70;
+  }
+
+  .feature-title {
+    @apply text-2xl font-semibold leading-tight tracking-[-0.05em] text-black transition-colors duration-300 group-hover:text-white;
+  }
+
+  .feature-detail {
+    @apply max-w-sm text-sm leading-7 text-neutral-600 transition-colors duration-300 group-hover:text-white/75;
+  }
+
+  .feature-arrow {
+    @apply text-lg font-semibold text-black transition-all duration-300 group-hover:translate-x-1 group-hover:text-white;
+  }
+}
+
+@keyframes prompt-dot-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes prompt-highlight-pulse {
+  0%,
+  100% {
+    box-shadow: inset 0 -0.42em 0 rgba(0, 0, 0, 0.08);
+  }
+
+  50% {
+    box-shadow: inset 0 -0.52em 0 rgba(0, 0, 0, 0.18);
+  }
+}
+
+@keyframes prompt-example-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
