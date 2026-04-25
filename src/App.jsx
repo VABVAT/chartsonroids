@@ -308,6 +308,13 @@ export default function App() {
                 <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.05em] sm:text-4xl">
                   Croid, live on the page.
                 </h2>
+                <p className="mt-4 text-sm leading-7 text-neutral-700">
+                  Want this on your app? Contact{' '}
+                  <a href="mailto:support@croid.app" className="font-semibold text-black transition-colors duration-300 hover:text-neutral-600">
+                    support@croid.app
+                  </a>{' '}
+                  for more info.
+                </p>
               </div>
               <p className="max-w-xl text-sm leading-7 text-neutral-700">
                 Search symbols, switch intervals, add indicators, draw, and run a backtest inside the same chart.
